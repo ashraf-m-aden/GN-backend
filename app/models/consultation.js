@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const consultationSchema = new mongoose.Schema({
 
-    type: {
-        type: String,
-        required: true
+    initial: {
+        type: Boolean,
+        required: true     //  initial ou suivi
     },
     isGN: {
         type: Boolean,
@@ -14,6 +14,7 @@ const consultationSchema = new mongoose.Schema({
     },
     idUser: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true
     },
     doctor: {
         type: String,
@@ -21,10 +22,10 @@ const consultationSchema = new mongoose.Schema({
     },
     idPatient: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true
     },
     patient: {
         type: String,
-        required: true
     },
     motif: {
         type: String,
@@ -51,27 +52,51 @@ const consultationSchema = new mongoose.Schema({
     referer: {
         type: Boolean,
     },
-    refererId: {
-        type: mongoose.Schema.Types.ObjectId,
-    },
     ordonnance: {
         type: Boolean,
     },
-    ordonnanceId: {
-        type: mongoose.Schema.Types.ObjectId,
-    },
+    medicaments: [{
+        medicament: {
+            type: String,
+        },
+        unite: {
+            type: String,
+        },
+        frequence: {
+            type: String,
+        },
+        jours: {
+            type: String,
+        }
+    }],
     analyse: {
         type: Boolean,
     },
-    analyseId: {
-        type: mongoose.Schema.Types.ObjectId,
-    },
+    exploration: [{
+        analyses: [{
+            analyse: {
+                type: String,
+            }
+        }],
+        typeI: {
+            type: String,
+        },
+        typeII: {
+            type: String,
+        },
+        typeIII: {
+            type: String,
+        },
+        typeIV: {
+            type: String,
+        }
+    }],
     resultat: {
         type: Boolean,
     },
     resultatId: {
         type: mongoose.Schema.Types.ObjectId,
-    },      
+    },
     enabled: {
         type: Boolean,
         default: true

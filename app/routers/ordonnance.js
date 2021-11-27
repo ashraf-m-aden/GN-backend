@@ -8,7 +8,6 @@ const auth = require('../middleware/auth')
 //////////////////////// NOUVELLE CONSULTATION
 
 router.post('/consultation',auth, async (req, res) => { // poster une consultation medicale
-    
     try {
         const consultation = new Consultation(req.body)
 

@@ -8,6 +8,10 @@ const consultationSchema = new mongoose.Schema({
         type: Boolean,
         required: true     //  initial ou suivi
     },
+    date: {
+        type: String,
+        required: true
+    },
     isGN: {
         type: Boolean,
         required: true

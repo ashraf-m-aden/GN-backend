@@ -7,7 +7,7 @@ const auth = require('../middleware/auth')
 
 //////////////////////// NOUVELLE CONSULTATION
 
-router.post('/consultation',auth, async (req, res) => { // poster une consultation medicale
+router.post('/consultation', auth, async (req, res) => { // poster une consultation medicale
     try {
         const consultation = new Consultation(req.body)
 
@@ -18,9 +18,9 @@ router.post('/consultation',auth, async (req, res) => { // poster une consultati
     }
 })
 router.get('/consultations/:id', auth, async (req, res) => {  // retrouver toutes les consultations medicales
-    
+
     try {
-        const consultations = await Consultation.find({idPatient: req.params.id})
+        const consultations = await Consultation.find({ idPatient: req.params.id })
         return res.status(200).send(consultations)
     } catch (error) {
         return res.status(404).send(error)
@@ -33,6 +33,33 @@ router.get('/consultation/:id', auth, async (req, res) => {  // get one consulta
         if (!consultation) {
             return res.status(404).send('consultation inexistante')
         }
+        res.status(200).send(consultation)
+    } catch (error) {
+        res.status(500).send('Un probleme est survenu veuillez reessayer')
+    }
+})
+router.get('/exploration/:id', auth, async (req, res) => {  // get all explration qui a cet id
+    try {
+        let consultation;
+       if(req.params.id === '2'){
+        consultation = await Consultation.find({})
+
+       } else {
+        consultation = await Consultation.find({ 'exploration.typeI': req.params.id })
+        if (consultation.length === 0) {
+            consultation = await Consultation.find({ 'exploration.typeII': req.params.id })
+            if (consultation.length === 0) {
+                consultation = await Consultation.find({ 'exploration.typeIII': req.params.id })
+                if (consultation.length === 0) {
+                    consultation = await Consultation.find({ 'exploration.typeIV': req.params.id })
+                    if (consultation.length === 0) {
+                        return res.status(404).send('consultation inexistante')
+                    }
+                }
+            }
+        }
+       }
+
         res.status(200).send(consultation)
     } catch (error) {
         res.status(500).send('Un probleme est survenu veuillez reessayer')
@@ -72,7 +99,7 @@ router.patch('/consultation/:id', auth, async (req, res) => {  // modify une con
 //////////////////////// ORDONNANCE MEDICAL
 
 router.post('/ordonnance', async (req, res) => { // poster une ordonnance medicale
-    
+
     try {
         const ordonnance = new Ordonnance(req.body)
 
@@ -83,7 +110,7 @@ router.post('/ordonnance', async (req, res) => { // poster une ordonnance medica
     }
 })
 router.get('/ordonnances', async (req, res) => {  // retrouver toutes les ordonnances medicales
-    
+
     try {
         const ordonnances = await Ordonnance.find({})
         return res.status(200).send(ordonnances)
@@ -123,7 +150,7 @@ router.patch('/ordonnance/:id', auth, async (req, res) => {  // modify une ordon
 //////////////////////// ORDONNANCE ANALYSE
 
 router.post('/analyse', async (req, res) => { // poster une ordonnance analyse
-    
+
     try {
         const analyse = new Analyse(req.body)
 
@@ -134,7 +161,7 @@ router.post('/analyse', async (req, res) => { // poster une ordonnance analyse
     }
 })
 router.get('/analyses', async (req, res) => {  // retrouver toutes les ordonnances medicales
-    
+
     try {
         const analyses = await Analyse.find({})
         return res.status(200).send(analyses)

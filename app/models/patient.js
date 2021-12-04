@@ -32,7 +32,19 @@ const patientSchema = new mongoose.Schema({
     email: {
         type: String,
     },
+    maritalStatus: {
+        type: String,
+    },
     bloodType: {
+        type: String,
+    },
+    img: {
+        type: String,
+    },
+    imgName: {
+        type: String,
+    },
+    dob: {
         type: String,
     },
     enabled: {

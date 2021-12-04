@@ -12,6 +12,12 @@ const consultationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    idPreviousConsultation: {
+        type: mongoose.Schema.Types.ObjectId,
+    },
+    idNextConsultation: {
+        type: mongoose.Schema.Types.ObjectId,
+    },
     isGN: {
         type: Boolean,
         required: true
@@ -44,15 +50,20 @@ const consultationSchema = new mongoose.Schema({
     hypotheses: {
         type: String,
     },
-    evalutation: {
+    evaluation: {
         type: String,
     },
     referer: {
         type: Boolean,
     },
-    refererContent: {
-        type: String,
-    },
+    refererList: [{
+        refererType: {
+            type: String,
+        },
+        refererContent: {
+            type: String,
+        }
+    }],
     referer: {
         type: Boolean,
     },
@@ -76,7 +87,8 @@ const consultationSchema = new mongoose.Schema({
     analyse: {
         type: Boolean,
     },
-    exploration: [{
+    explorations: [
+        {
         analyses: [{
             analyse: {
                 type: String,
@@ -93,14 +105,15 @@ const consultationSchema = new mongoose.Schema({
         },
         typeIV: {
             type: String,
-        }
+        },
+        resultat: {
+            type: Boolean,
+        },
+        resultatUrl: {
+            type: String,
+        },
     }],
-    resultat: {
-        type: Boolean,
-    },
-    resultatId: {
-        type: mongoose.Schema.Types.ObjectId,
-    },
+
     enabled: {
         type: Boolean,
         default: true

@@ -12,6 +12,11 @@ router.post('/consultation', auth, async (req, res) => { // poster une consultat
         const consultation = new Consultation(req.body)
 
         await consultation.save()
+        if (consultation.idPreviousConsultation) {
+            const oldConsultation = await Consultation.findById({_id:consultation.idPreviousConsultation});
+            oldConsultation.idNextConsultation = consultation._id
+            await oldConsultation.save()
+        }
         return res.status(200).send(consultation)
     } catch (error) {
         return res.status(404).send(error)
@@ -45,13 +50,13 @@ router.get('/exploration/:id', auth, async (req, res) => {  // get all explratio
         consultation = await Consultation.find({})
 
        } else {
-        consultation = await Consultation.find({ 'exploration.typeI': req.params.id })
+        consultation = await Consultation.find({'explorations.typeI': req.params.id});
         if (consultation.length === 0) {
-            consultation = await Consultation.find({ 'exploration.typeII': req.params.id })
+            consultation = await Consultation.find({ 'explorations.typeII': req.params.id })
             if (consultation.length === 0) {
-                consultation = await Consultation.find({ 'exploration.typeIII': req.params.id })
+                consultation = await Consultation.find({ 'explorations.typeIII': req.params.id })
                 if (consultation.length === 0) {
-                    consultation = await Consultation.find({ 'exploration.typeIV': req.params.id })
+                    consultation = await Consultation.find({ 'explorations.typeIV': req.params.id })
                     if (consultation.length === 0) {
                         return res.status(404).send('consultation inexistante')
                     }

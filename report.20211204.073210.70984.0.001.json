@@ -1,0 +1,153 @@
+
+{
+  "header": {
+    "reportVersion": 2,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20211204.073210.70984.0.001.json",
+    "dumpEventTime": "2021-12-04T07:32:10Z",
+    "dumpEventTimeStamp": "1638592330230",
+    "processId": 70984,
+    "threadId": null,
+    "cwd": "D:\\projet\\angular project\\cliniva\\cliniva\\source\\backend-gn",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\projet\\angular project\\cliniva\\cliniva\\source\\backend-gn\\app\\index.js",
+      "app/index.js"
+    ],
+    "nodejsVersion": "v12.16.2",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.2",
+      "v8": "7.8.279.23-node.34",
+      "uv": "1.34.2",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1e",
+      "cldr": "36.0",
+      "icu": "65.1",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.2/node-v12.16.2-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.2/node-v12.16.2.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.2/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19042",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 1366500,
+        "nice": 0,
+        "sys": 401687,
+        "idle": 24106359,
+        "irq": 28468
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 899703,
+        "nice": 0,
+        "sys": 240421,
+        "idle": 24734218,
+        "irq": 3515
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 2057421,
+        "nice": 0,
+        "sys": 459015,
+        "idle": 23357906,
+        "irq": 7250
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 849578,
+        "nice": 0,
+        "sys": 187562,
+        "idle": 24837203,
+        "irq": 2187
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 1465046,
+        "nice": 0,
+        "sys": 364953,
+        "idle": 24044343,
+        "irq": 5296
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 835593,
+        "nice": 0,
+        "sys": 184062,
+        "idle": 24854687,
+        "irq": 1687
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 1396703,
+        "nice": 0,
+        "sys": 343640,
+        "idle": 24134000,
+        "irq": 4171
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 665515,
+        "nice": 0,
+        "sys": 162218,
+        "idle": 25046609,
+        "irq": 1343
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 1416671,
+        "nice": 0,
+        "sys": 366000,
+        "idle": 24091671,
+        "irq": 5046
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 639812,
+        "nice": 0,
+        "sys": 157156,
+        "idle": 25077375,
+        "irq": 1468
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 1138875,
+        "nice": 0,
+        "sys": 283875,
+        "idle": 24451593,
+        "irq": 3171
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+       

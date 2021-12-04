@@ -11,7 +11,27 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    numero: {
+        type: Number,
+    },
+    
+    img: {
+        type: String,
+    },
+    grade: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
+    gender: {
+        type: String,
+    },
     password: {
+        type: String,
+        required: true
+    },
+    dob: {
         type: String,
         required: true
     },

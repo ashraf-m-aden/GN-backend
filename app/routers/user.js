@@ -90,7 +90,7 @@ router.get('/user/:id', auth, async (req, res) => {  // get one user
         let user = await User.findById({ _id: req.params.id })
         if (!user) {
            
-            return res.status(404).send('patient inexistant')
+            return res.status(404).send('Docteur inexistant')
         }
         res.status(200).send(user)
     } catch (error) {

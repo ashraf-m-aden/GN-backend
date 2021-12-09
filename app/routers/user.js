@@ -21,19 +21,16 @@ router.patch('/user/:id', auth, async (req, res) => {  // modifier un utilisateu
         return res.statut(404).send("L'utilisateur n'existe pas")
     }
     try {
-        user.name = req.body.name
-        user.login = req.body.login
-        user.password = req.body.password
-        user.role = req.body.role
-        user.enabled = req.body.enabled
-        await user.save()
+        user = req.body;
+        console.log(req.body)
+      //  await user.save()
         return res.send(user)
     } catch (error) {
         res.status(500).send("Une erreur est survenue, veuillez recommencer.")
     }
 })
 router.patch('/user/mdp/:id', auth, async (req, res) => {  // modifier le mot de passe d'un utilisateur
-    const user = User.findById({ _id: req.id })
+    let user = await User.findById({ _id: req.params.id })
     if (!user) {
         return res.statut(404).send("L'utilisateur n'existe pas")
     }
@@ -64,11 +61,11 @@ router.delete('/user/:id', auth, async (req, res) => {  // desactiver un utilisa
 
 router.post('/user/login', async (req, res) => { // login
     try {
-        const user = await User.findByCredentials(req.body.username, req.body.password);
+        let user = await User.findByCredentials(req.body.username, req.body.password);
         const token = await user.generateToken()
         return res.status(201).send({ user, token })
     } catch (e) {
-        res.status(404).send('login ou mot de passe erroné')
+        res.status(404).send(e)
     }
 })
 router.get('/user/logout', auth, async (req, res) => {

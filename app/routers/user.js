@@ -16,14 +16,13 @@ router.post('/user', auth, async (req, res) => { // nouvel utilisateur
 
 
 router.patch('/user/:id', auth, async (req, res) => {  // modifier un utilisateur
-    const user = User.findById({ _id: req.id })
+    let user = await User.findById({ _id: req.params.id })
     if (!user) {
         return res.statut(404).send("L'utilisateur n'existe pas")
     }
     try {
-        user = req.body;
-        console.log(req.body)
-      //  await user.save()
+        await Object.assign(user, req.body)
+        await user.save()
         return res.send(user)
     } catch (error) {
         res.status(500).send("Une erreur est survenue, veuillez recommencer.")

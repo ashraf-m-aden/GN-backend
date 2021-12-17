@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
     numero: {
         type: Number,
     },
+    marital: {
+        type: String,
+    },
     
     img: {
         type: String,
@@ -32,6 +35,9 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     dob: {
+        type: String,
+    },
+    email: {
         type: String,
     },
     username: {

@@ -5,7 +5,7 @@
   tasks:
     - name: copy backend to client
       ansible.builtin.copy:
-        src: /var/lib/jenkins/workspace/Build GN Frontend/*
+        src: /var/lib/jenkins/workspace/Build GN Frontend/
         dest: /backend/ # link to /path/to/file
         follow: yes
     - name: Install node.js app and then run it
